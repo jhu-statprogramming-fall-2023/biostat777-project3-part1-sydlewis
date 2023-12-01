@@ -14,7 +14,7 @@ knitr::opts_chunk$set(
 )
 ```
 
-```{r setup}
+```{r setup, message = FALSE}
 library(halfplus7)
 library(tidyverse)
 ```
@@ -30,7 +30,7 @@ ggplot(age_df, aes(x = age, y = lower_lim)) +
   geom_line(linetype = "dashed") +
   geom_abline(intercept = 0, slope = 1, linetype = "solid", color = "black") +
   labs(
-    title = "Lower Limit for Each Age Given 'HYAP7' Rule",
+    title = "Lower Limit for Each Age Given 'Half-Your-Age-Plus-7-Years' Rule",
     x = "Age",
     y = "Lower Limit Age"
   )
