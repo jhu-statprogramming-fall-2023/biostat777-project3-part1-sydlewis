@@ -1,0 +1,19 @@
+---
+title: "age_range"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{age_range}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup}
+library(halfplus7)
+```

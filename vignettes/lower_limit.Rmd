@@ -1,0 +1,37 @@
+---
+title: "lower_limit"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{lower_limit}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup}
+library(halfplus7)
+library(tidyverse)
+```
+
+```{r}
+age <- c(18:100)
+
+lower_lim <- lower_limit(age)
+
+age_df <- as.data.frame(cbind(age, lower_lim))
+
+ggplot(age_df, aes(x = age, y = lower_lim)) +
+  geom_point() +
+  geom_abline(intercept = 0, slope = 1, linetype = "dashed", color = "black") +
+  labs(
+    title = "Lower Limit for Each Age Given 'HYAP7' Rule",
+    x = "Age",
+    y = "Lower Limit Age"
+  )
+```
