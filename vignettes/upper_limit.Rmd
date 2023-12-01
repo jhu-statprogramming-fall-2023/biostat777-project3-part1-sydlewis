@@ -19,19 +19,29 @@ library(halfplus7)
 library(tidyverse)
 ```
 
-```{r}
+```{r, warning = FALSE}
 age <- c(18:100)
 
 upper_lim <- upper_limit(age)
 
 age_df <- as.data.frame(cbind(age, upper_lim))
 
+slope <- diff(range(age_df$upper_lim)) / diff(range(age_df$age))
+
 ggplot(age_df, aes(x = age, y = upper_lim)) +
   geom_line(linetype = "dashed") +
   geom_abline(intercept = 0, slope = 1, linetype = "solid", color = "black") +
+    geom_ribbon(aes(ymin = pmin(age, upper_lim), ymax = pmax(age, upper_lim)),
+              fill = "pink", alpha = 0.5) +
+  geom_text(aes(x = 20, y = 50, label = "Upper Limit for Age of Romantic Partner"), color = "darkred", angle = atan(slope) * (180 / pi), hjust = 0) +
+  geom_text(aes(x = 60, y = 50, label = "Age"), color = "black") +
   labs(
-    title = "Upper Limit for Each Age Given 'Half-Your-Age-Plus-7-Years' Rule",
+    title = "Upper Limit for Each Age Given \n'Half-Your-Age-Plus-7-Years' Rule",
     x = "Age",
     y = "Upper Limit Age"
-  )
+  ) +
+  coord_fixed(ratio = 1) +  # Set the aspect ratio to 1
+  scale_x_continuous(limits = c(15, 100)) +  # Set x-axis limits
+  scale_y_continuous(limits = c(15, 190)) 
 ```
+
