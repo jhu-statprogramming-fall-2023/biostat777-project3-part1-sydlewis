@@ -33,14 +33,15 @@ couple_df <- combinations %>%
   ))
 
 ggplot(couple_df, aes(x = age1, y = age2, color = verdict)) +
-  geom_point() +
+  geom_point(alpha = 0.5) +
   scale_color_manual(values = c("Yes" = "darkgreen", "No" = "red")) +
   labs(
     title = "'Half-Your-Age-Plus-Seven' Ruling on Different Age Combinations",
-    x = "Age 1",
-    y = "Age 2",
+    x = "Age of First Person",
+    y = "Age of Second Person",
     color = "Age Appropriate Match?"
-  )
+  ) +
+  theme_minimal()
 
 
 ```

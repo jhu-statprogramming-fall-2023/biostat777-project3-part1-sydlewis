@@ -23,5 +23,3 @@ upper_limit <- function(age){
 
   return(upper_lim)
 }
-
-upper_limit(30)
