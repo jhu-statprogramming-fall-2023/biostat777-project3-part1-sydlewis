@@ -15,5 +15,29 @@ knitr::opts_chunk$set(
 ```
 
 ```{r setup}
+library(tidyverse)
 library(halfplus7)
 ```
+
+```{r, include = FALSE}
+age1 <- c(18:100)
+age2 <- c(18:100)
+verdict_long <- check_couple(age1, age2)
+
+couple_df <- as.data.frame(cbind(age1, age2, verdict_long))
+
+couple_df4 <- couple_df %>%
+  mutate(verdict = case_when(
+    str_detect(verdict_long, "NOT") ~ "No",
+    !str_detect(verdict_long, "NOT") ~ "Yes"
+  ))
+
+couple_df
+
+ggplot(couple_df4, aes(x = age1, y = age2, color = verdict)) +
+  geom_point()
+
+
+```
+
+

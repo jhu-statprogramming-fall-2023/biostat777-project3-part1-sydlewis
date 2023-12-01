@@ -27,8 +27,8 @@ upper_lim <- upper_limit(age)
 age_df <- as.data.frame(cbind(age, upper_lim))
 
 ggplot(age_df, aes(x = age, y = upper_lim)) +
-  geom_point() +
-  geom_abline(intercept = 0, slope = 1, linetype = "dashed", color = "black") +
+  geom_line(linetype = "dashed") +
+  geom_abline(intercept = 0, slope = 1, linetype = "solid", color = "black") +
   labs(
     title = "Upper Limit for Each Age Given 'HYAP7' Rule",
     x = "Age",
