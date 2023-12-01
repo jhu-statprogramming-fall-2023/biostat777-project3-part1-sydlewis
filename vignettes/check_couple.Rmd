@@ -19,23 +19,28 @@ library(tidyverse)
 library(halfplus7)
 ```
 
-```{r, include = FALSE}
+```{r}
 age1_list <- c(18:100)
 age2_list <- c(18:100)
 
 combinations <- expand.grid(age1 = age1_list, age2 = age2_list)
 
 couple_df <- combinations %>%
-  mutate(verdict_long = check_couple(age1, age2))
-
-couple_df4 <- couple_df %>%
-  mutate(verdict = case_when(
+  mutate(verdict_long = check_couple(age1, age2),
+         verdict = case_when(
     str_detect(verdict_long, "NOT") ~ "No",
     !str_detect(verdict_long, "NOT") ~ "Yes"
   ))
 
-ggplot(couple_df4, aes(x = age1, y = age2, color = verdict)) +
-  geom_point()
+ggplot(couple_df, aes(x = age1, y = age2, color = verdict)) +
+  geom_point() +
+  scale_color_manual(values = c("Yes" = "darkgreen", "No" = "red")) +
+  labs(
+    title = "'Half-Your-Age-Plus-Seven' Ruling on Different Age Combinations",
+    x = "Age 1",
+    y = "Age 2",
+    color = "Age Appropriate Match?"
+  )
 
 
 ```

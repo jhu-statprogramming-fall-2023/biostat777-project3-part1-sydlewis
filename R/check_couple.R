@@ -21,29 +21,47 @@ check_couple <- function(age1, age2) {
     stop("Error: Both ages must be numeric values")
   }
 
-  # Assign the larger age to older_age
-  older_age <- max(age1, age2)
+  # Check if age1 and age2 are single values
+  if (length(age1) == 1 && length(age2) == 1) {
+    # Single values, calculate the verdict directly
+    older_age <- max(age1, age2)
+    threshold <- (older_age / 2) + 7
 
-  # Calculate the lower limit based on the larger age
-  threshold <- (older_age / 2) + 7
-
-  # Check if the lower limit is less than or equal to the smaller age
-  if (threshold <= min(age1, age2)) {
-    verdict <- TRUE
-    output <- paste("A couple with the ages",
-                    age1,
-                    "and",
-                    age2,
-                    "does meet the 'Half-Your-Age-Plus-Seven' Rule.")
+    if (threshold <= min(age1, age2)) {
+      verdict <- TRUE
+      output <- paste("A couple with the ages",
+                      age1,
+                      "and",
+                      age2,
+                      "does meet the 'Half-Your-Age-Plus-Seven' Rule.")
+    } else {
+      verdict <- FALSE
+      output <- paste("A couple with the ages",
+                      age1,
+                      "and",
+                      age2,
+                      "does NOT meet the 'Half-Your-Age-Plus-Seven' Rule.")
+    }
   } else {
-    verdict <- FALSE
-    output <- paste("A couple with the ages",
-                    age1,
-                    "and",
-                    age2,
-                    "does NOT meet the 'Half-Your-Age-Plus-Seven' Rule.")
+    # Vectors, perform element-wise calculations
+    older_age <- pmax(age1, age2)
+    threshold <- (older_age / 2) + 7
+    verdict <- threshold <= pmin(age1, age2)
+
+    output <- ifelse(verdict,
+                     paste("A couple with the ages",
+                           age1,
+                           "and",
+                           age2,
+                           "does meet the 'Half-Your-Age-Plus-Seven' Rule."),
+                     paste("A couple with the ages",
+                           age1,
+                           "and",
+                           age2,
+                           "does NOT meet the 'Half-Your-Age-Plus-Seven' Rule."))
   }
 
   # Return the result
   return(output)
 }
+
