@@ -12,4 +12,4 @@ The "Half-Your-Age-Plus-Seven" Rule is sometimes used to decide whether or not t
 
 `check_couple` : provides a verdict about a couple, given their two ages
 
-Please note that this package is not meant to provide absolute judgement about a couple, but rather the application of one perspective about romantic age gaps.  
+**Please note:** This package is not meant to be silly, unserious, and NOT to provide any absolute judgement about a couple. Relationships are complicated and a super simple mathmatical formula about one aspect of the individuals involved shouldn't hold too much weight.
