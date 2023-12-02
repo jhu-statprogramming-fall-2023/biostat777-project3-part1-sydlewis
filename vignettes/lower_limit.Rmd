@@ -10,7 +10,9 @@ vignette: >
 ```{r, include = FALSE}
 knitr::opts_chunk$set(
   collapse = TRUE,
-  comment = "#>"
+  comment = "#>",
+  fig.width = 8,
+  fig.height = 6
 )
 ```
 
@@ -33,7 +35,7 @@ ggplot(age_df, aes(x = age, y = lower_lim)) +
   geom_abline(intercept = 0, slope = 1, linetype = "solid", color = "black") +
     geom_ribbon(aes(ymin = pmin(age, lower_lim), ymax = pmax(age, lower_lim)),
               fill = "pink", alpha = 0.5) +
-  geom_text(aes(x = 30, y = 18, label = "Lower Limit for Age of Romantic Partner"), color = "darkred", angle = atan(slope) * (180 / pi), hjust = 0) +
+  geom_text(aes(x = 30, y = 18, label = "Lower Limit for Age of Partner"), color = "darkred", angle = atan(slope) * (180 / pi), hjust = 0) +
   geom_text(aes(x = 40, y = 50, label = "Age"), color = "black") +
   labs(
     title = "Lower Limit for Each Age Given \n'Half-Your-Age-Plus-7-Years' Rule",
