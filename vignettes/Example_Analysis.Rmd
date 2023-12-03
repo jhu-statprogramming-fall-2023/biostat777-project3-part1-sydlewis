@@ -16,11 +16,14 @@ knitr::opts_chunk$set(
 )
 ```
 
+## Loading Necessary Packages
+
 ```{r setup, message = FALSE}
 library(tidyverse)
 library(halfplus7)
 ```
 
+## Saving the Data
 
 ```{r}
 download_and_save <- function(file_name, url) {
@@ -41,10 +44,14 @@ download_and_save <- function(file_name, url) {
 download_and_save("age_gaps.csv", 'https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2023/2023-02-14/age_gaps.csv')
 ```
 
+## Loading Dataset
+
 ```{r}
 # Import dataset
 age_gaps_raw <- read_csv("../data/age_gaps.csv")
 ```
+
+## Cleaning Dataset 
 
 ```{r}
 age_gaps_v1 <- age_gaps_raw %>%
@@ -83,6 +90,8 @@ age_gaps_straight <- age_gaps_v1 %>%
   )
 ```
 
+## Visualizing Age Gaps over Time
+
 ```{r}
 ggplot(age_gaps_straight, aes(x = release_year, y = age_difference, color = older_actor)) +
   geom_jitter(alpha = 0.5) +
@@ -97,6 +106,8 @@ ggplot(age_gaps_straight, aes(x = release_year, y = age_difference, color = olde
   theme_minimal()
 ```
 
+## Age Comparison of Men and Women in Movie Couples
+
 ```{r}
 ggplot(age_gaps_straight, aes(man_age, woman_age)) +
   geom_jitter(size = 1, alpha = 0.75, color = "darkblue") +  # Add points for the scatter plot
@@ -109,6 +120,8 @@ ggplot(age_gaps_straight, aes(man_age, woman_age)) +
     y = "Woman's Age"
   )
 ```
+
+## Creates Dataset for Straight Couples
 
 ```{r}
 top_age_gaps <- age_gaps_straight %>%
@@ -125,6 +138,8 @@ long_data <- top_age_gaps %>%
 long_data <- long_data %>%
   mutate(actor_name = ifelse(actor == "man_age", man_name, woman_name))
 ```
+
+## Visualizing Top 10 Largest Age Gaps when Man is Older
 
 ```{r}
 
@@ -151,6 +166,8 @@ long_data %>%
   theme_minimal() + 
   theme(legend.position = "top")
 ```
+
+## Visualizing Top 10 Largest Age Gaps when Woman is Older
 
 ```{r}
 long_data %>%
