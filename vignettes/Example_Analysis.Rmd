@@ -119,7 +119,7 @@ age_gaps_straight %>%
   ggplot(aes(man_age, woman_age, color = verdict)) +
   geom_jitter(size = 1, alpha = 0.75) +  # Add points for the scatter plot
   geom_abline(intercept = 0, slope = 1, linetype = "dashed", color = "black") +
-  scale_color_manual(values = c("Yes" = "darkgreen", "No" = "darkred")) +
+  scale_color_manual(values = c("Yes" = "blue", "No" = "red")) +
   theme_minimal() +
   labs(
     title = "Age Comparison of Woman and Man in Straight Movie Couples",
@@ -127,7 +127,8 @@ age_gaps_straight %>%
     x = "Man's Age",
     y = "Woman's Age",
     color = "Does the Couple follow the \n'Half-Your-Age-Plus-Seven' Rule?"
-  )
+  ) + 
+  theme(legend.position = "top")
 ```
 
 ## Creates Dataset for Straight Couples
@@ -198,8 +199,6 @@ long_data %>%
   theme_minimal() + 
   theme(legend.position = "top") +
   guides(color = guide_legend(title = "Gender"))
-
-
 
 ```
 

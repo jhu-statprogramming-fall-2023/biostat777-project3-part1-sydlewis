@@ -44,8 +44,6 @@ ggplot(couple_df, aes(x = age1, y = age2, color = verdict)) +
     color = "Age Appropriate Match?"
   ) +
   theme_minimal()
-
-
 ```
 
 
