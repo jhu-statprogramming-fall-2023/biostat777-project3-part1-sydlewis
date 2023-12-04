@@ -14,3 +14,4 @@ Suggests:
     knitr,
     rmarkdown
 VignetteBuilder: knitr
+URL: https://github.com/sydlewis/halfplus7

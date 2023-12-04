@@ -2,3 +2,8 @@ url: ~
 template:
   bootstrap: 5
   bootswatch: journal
+
+navbar:
+  structure:
+    left:  [intro, reference, articles]
+    right: [search, github]
