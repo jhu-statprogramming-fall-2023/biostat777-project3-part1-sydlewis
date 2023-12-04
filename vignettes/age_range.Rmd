@@ -33,7 +33,8 @@ age_df <- data.frame(age = age,
 
 ggplot(age_df, aes(x = age, y = lower_limit)) +
   geom_linerange(aes(ymin = lower_limit, ymax = upper_limit), position = position_nudge(x = 0.5), size = 1, color = "lightblue") +
-  labs(title = "Appropriate Age Range Across Ages",
+  labs(title = "Appropriate Age Range Across Ages Given
+'Half-Your-Age-Plus-7-Years' Rule",
        x = "Input Age",
        y = "Output Age Range") +
   theme_minimal()
