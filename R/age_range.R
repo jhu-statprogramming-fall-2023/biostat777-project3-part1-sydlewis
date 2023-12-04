@@ -19,17 +19,13 @@ age_range <- function(age) {
       stop("Error: the age must be a numeric value")
     }
 
+    below_18 <- age < 18
+    if (any(below_18)) {
+      stop("Error: all ages must be 18 or greater")
+    }
+
     lower_limit <- lower_limit(age)
     upper_limit <- upper_limit(age)
 
-    result <- paste(
-      "According to the 'Half-Your-Age-Plus-Seven' Rule, a person of",
-      age,
-      "years may be in a relationship with someone as young as",
-      lower_limit,
-      "years and as old as",
-      upper_limit,
-      "years.")
-
-    return(result)
+    return(c(lower_limit = lower_limit, upper_limit = upper_limit))
 }

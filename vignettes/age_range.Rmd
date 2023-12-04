@@ -10,7 +10,9 @@ vignette: >
 ```{r, include = FALSE}
 knitr::opts_chunk$set(
   collapse = TRUE,
-  comment = "#>"
+  comment = "#>",
+  fig.width = 8,
+  fig.height = 6
 )
 ```
 
@@ -20,6 +22,23 @@ library(tidyverse)
 ```
 
 
+```{r}
+age <- c(18:100)
+
+age_ranges <- t(sapply(age, age_range))
+
+age_df <- data.frame(age = age,
+                 lower_limit = as.numeric(age_ranges[, "lower_limit"]),
+                 upper_limit = as.numeric(age_ranges[, "upper_limit"]))
+
+ggplot(age_df, aes(x = age, y = lower_limit)) +
+  geom_linerange(aes(ymin = lower_limit, ymax = upper_limit), position = position_nudge(x = 0.5), size = 1, color = "lightblue") +
+  labs(title = "Appropriate Age Range Across Ages",
+       x = "Input Age",
+       y = "Output Age Range") +
+  theme_minimal()
+
+```
 
 
 
