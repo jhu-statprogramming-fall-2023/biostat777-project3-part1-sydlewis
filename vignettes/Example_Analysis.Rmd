@@ -195,3 +195,18 @@ long_data %>%
 ```
 
 
+
+### Functions Used
+
+`dplyr` : `case_when`, `filter`, `mutate`, `slice_head`, `arrange`, `group_by`
+
+`tidyr` : `pivot_longer`, `uncount`
+
+`lubridate` : `ymd`
+
+`ggplot2` : `geom_jitter`, `geom_abline`, `geom_point`, `geom_segment`, `geom_text`
+
+`halfplus7` :
+
+
+
