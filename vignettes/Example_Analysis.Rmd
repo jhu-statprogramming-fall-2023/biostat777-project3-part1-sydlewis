@@ -93,6 +93,7 @@ age_gaps_straight <- age_gaps_v1 %>%
 ## Visualizing Age Gaps over Time
 
 ```{r}
+
 ggplot(age_gaps_straight, aes(x = release_year, y = age_difference, color = older_actor)) +
   geom_jitter(alpha = 0.5) +
   scale_color_manual(values = c("man" = "darkgreen", "woman" = "purple"),
@@ -109,15 +110,23 @@ ggplot(age_gaps_straight, aes(x = release_year, y = age_difference, color = olde
 ## Age Comparison of Men and Women in Movie Couples
 
 ```{r}
-ggplot(age_gaps_straight, aes(man_age, woman_age)) +
-  geom_jitter(size = 1, alpha = 0.75, color = "darkblue") +  # Add points for the scatter plot
+
+age_gaps_straight %>%
+  mutate(verdict_long = check_couple(man_age, woman_age),
+         verdict = case_when(
+    str_detect(verdict_long, "NOT") ~ "No",
+    !str_detect(verdict_long, "NOT") ~ "Yes")) %>%
+  ggplot(aes(man_age, woman_age, color = verdict)) +
+  geom_jitter(size = 1, alpha = 0.75) +  # Add points for the scatter plot
   geom_abline(intercept = 0, slope = 1, linetype = "dashed", color = "black") +
+  scale_color_manual(values = c("Yes" = "darkgreen", "No" = "darkred")) +
   theme_minimal() +
   labs(
     title = "Age Comparison of Woman and Man in Straight Movie Couples",
     subtitle = "Observations that fall on the red dashed line indicate the same age for the man and woman.",
     x = "Man's Age",
-    y = "Woman's Age"
+    y = "Woman's Age",
+    color = "Does the Couple follow the \n'Half-Your-Age-Plus-Seven' Rule?"
   )
 ```
 
@@ -206,7 +215,7 @@ long_data %>%
 
 `ggplot2` : `geom_jitter`, `geom_abline`, `geom_point`, `geom_segment`, `geom_text`
 
-`halfplus7` :
+`halfplus7` : `check_couple`
 
 
 
