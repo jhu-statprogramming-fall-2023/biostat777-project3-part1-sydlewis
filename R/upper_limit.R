@@ -19,8 +19,9 @@ upper_limit <- function(age){
     stop("Error: the age must be a numeric value")
   }
 
-  if (age < 18) {
-    stop("Error: the age must be 18 or greater")
+  below_18 <- age < 18
+  if (any(below_18)) {
+    stop("Error: all ages must be 18 or greater")
   }
 
   upper_lim <- (age - 7) * 2

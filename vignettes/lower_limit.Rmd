@@ -43,8 +43,8 @@ ggplot(age_df, aes(x = age, y = lower_lim)) +
     y = "Lower Limit Age"
   ) +
   coord_fixed(ratio = 1) +  # Set the aspect ratio to 1
-  scale_x_continuous(limits = c(15, 100)) +  # Set x-axis limits
-  scale_y_continuous(limits = c(15, 100)) 
+  scale_x_continuous(limits = c(20, 100)) +  # Set x-axis limits
+  scale_y_continuous(limits = c(20, 100)) 
 
 
 ```

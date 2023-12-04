@@ -19,12 +19,13 @@ lower_limit <- function(age) {
     stop("Error: the age must be a numeric value")
   }
 
-  if (age < 18) {
-    stop("Error: the age must be 18 or greater")
+  below_18 <- age < 18
+  if (any(below_18)) {
+    stop("Error: all ages must be 18 or greater")
   }
 
   lower_lim <- age / 2 + 7
-  lower_lim <- max(lower_lim, 18)  # Ensure the result is at least 18
+  lower_lim <- pmax(lower_lim, 18)  # Ensure the result is at least 18 for each element
 
   return(lower_lim)
 }
