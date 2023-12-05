@@ -55,6 +55,8 @@ age_gaps_raw <- read_csv("../data/age_gaps.csv")
 
 ```{r}
 age_gaps_v1 <- age_gaps_raw %>%
+  filter(actor_1_age >= 18,
+         actor_2_age >= 18) %>%
   mutate(orientation = ifelse(character_1_gender == "man" & character_2_gender == "man" |
                                character_1_gender == "woman" & character_2_gender == "woman",
                              "LGBTQ",
