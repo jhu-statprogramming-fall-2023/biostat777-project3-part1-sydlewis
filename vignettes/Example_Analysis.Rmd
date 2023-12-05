@@ -148,7 +148,7 @@ long_data <- long_data %>%
   mutate(actor_name = ifelse(actor == "man_age", man_name, woman_name))
 ```
 
-## Visualizing Top 10 Largest Age Gaps when Man is Older
+## Top 10 Largest Age Gaps when Man is Older
 
 ```{r}
 
@@ -159,12 +159,13 @@ midpoints <- long_data %>%
 long_data %>%
   filter(older_actor == "man") %>%
   ggplot(aes(x = age, y = reorder(movie_name, age_difference))) +
-  geom_point(aes(color = actor)) +
+  geom_label(aes(label = age, color = actor), show.legend = FALSE, 
+             fill = "white", size = 3, hjust = 0.5, vjust = 0.5) +
   geom_segment(aes(x = age, xend = ifelse(actor == "woman_age", age + age_difference, age), 
                    y = movie_name, yend = movie_name), 
-               color = "black", linetype = "solid", size = 0.5) +
+               color = "gray", linetype = "dashed", size = 0.5) +
   geom_text(aes(label = actor_name, y = movie_name), 
-            vjust = -1, hjust = 0.5, size = 3) +
+            vjust = -1.2, hjust = 0.5, size = 3) +
   labs(title = "Top 10 Largest Age Gaps in Straight Movie Couples \nWhen the Man is Older",
        x = "Actor Age (years)", 
        y = "Movie Title",
@@ -173,31 +174,33 @@ long_data %>%
   scale_color_manual(values = c("man_age" = "darkgreen", "woman_age" = "purple"),
     labels = c("Man", "Woman")) +
   theme_minimal() + 
-  theme(legend.position = "top")
+  theme(legend.position = "top") +
+  xlim(c(12, 80))
 ```
 
-## Visualizing Top 10 Largest Age Gaps when Woman is Older
+## Top 10 Largest Age Gaps when Woman is Older
 
 ```{r}
 long_data %>%
   filter(older_actor == "woman") %>%
   ggplot(aes(x = age, y = reorder(interaction(movie_name, age_difference), age_difference))) +
-  geom_point(aes(color = actor)) +
+  geom_label(aes(label = age, color = actor), show.legend = FALSE, 
+             fill = "white", size = 3, hjust = 0.5, vjust = 0.5) +
   geom_segment(aes(x = age, xend = ifelse(actor == "man_age", age + age_difference, age), 
                    y = interaction(movie_name, age_difference), yend = interaction(movie_name, age_difference)), 
-               color = "black", linetype = "solid", size = 0.5) +
+               color = "gray", linetype = "dashed", size = 0.5) +
   geom_text(aes(label = actor_name, y = interaction(movie_name, age_difference)), 
-            vjust = -1, hjust = 0.5, size = 3) +
+            vjust = -1.2, hjust = 0.5, size = 3) +
   labs(title = "Top 10 Largest Age Gaps in Straight Movie Couples \nWhen the Woman is Older",
        x = "Actor Age (years)", 
        y = "Movie Title",
-       color = "Gender:",
        caption = "Created using TidyTuesday data") +
   scale_color_manual(values = c("man_age" = "darkgreen", "woman_age" = "purple"),
     labels = c("Man", "Woman")) +
   theme_minimal() + 
   theme(legend.position = "top") +
-  guides(color = guide_legend(title = "Gender"))
+  guides(color = guide_legend(title = "Gender:")) +
+  xlim(c(12, 78))
 
 ```
 
