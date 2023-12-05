@@ -8,18 +8,20 @@
 #'
 #' @return The ages that are the appropriate age range for the age entered
 #'
-#' @import lubridate
+#' @import
 #' @export
 #'
 #' @examples
-#' ages_firstokay(1970-03-19, 2000-07-09)
+#' ages_firstok("1970-03-19", "2000-07-09")
+#'
+#' ages_firstok("1800-01-20", "1900-03-17")
 #'
 
 ages_firstok <- function(birthdate1, birthdate2) {
 
   # Convert input strings to Date objects
-  birthdate1 <- ymd(birthdate1)
-  birthdate2 <- ymd(birthdate2)
+  birthdate1 <- as.Date(birthdate1)
+  birthdate2 <- as.Date(birthdate2)
 
   # Calculate the time difference in years
   age_diff <- as.numeric(difftime(birthdate2, birthdate1, units = "days") / 365.25)
@@ -36,3 +38,4 @@ ages_firstok <- function(birthdate1, birthdate2) {
 
   return(c("Age of Older Person" = older_age, "Age of Younger Person" = younger_age))
 }
+

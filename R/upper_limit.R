@@ -13,6 +13,10 @@
 #' @examples
 #' upper_limit(30)
 #'
+#' upper_limit(15)
+#'
+#' upper_limit(57)
+#'
 
 upper_limit <- function(age){
   if (!is.numeric(age)){

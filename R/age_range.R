@@ -13,6 +13,10 @@
 #' @examples
 #' age_range(28)
 #'
+#' age_range(16)
+#'
+#' age_range(85)
+#'
 
 age_range <- function(age) {
     if (!is.numeric(age)) {

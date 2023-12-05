@@ -14,11 +14,20 @@
 #' @examples
 #' check_couple(70, 30)
 #'
+#' check_couple(16, 19)
+#'
+#' check_couple(50, 80)
+#'
+#'
 
 check_couple <- function(age1, age2) {
   # Make sure both age1 and age2 are numeric
   if (!is.numeric(age1) || !is.numeric(age2)) {
     stop("Error: Both ages must be numeric values")
+  }
+
+  if (any(age1 < 18) || any(age2 < 18)) {
+    stop("Error: Age must be 18 or older for both individuals")
   }
 
   # Check if age1 and age2 are single values

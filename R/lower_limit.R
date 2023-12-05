@@ -13,6 +13,10 @@
 #' @examples
 #' lower_limit(30)
 #'
+#' lower_limit(17)
+#'
+#' lower_limit(99)
+#'
 
 lower_limit <- function(age) {
   if (!is.numeric(age)) {
