@@ -28,8 +28,8 @@ ages_firstok <- function(birthdate1, birthdate2) {
 
   # Check if age_diff is less than 4
   if (age_diff < 4) {
-    older_age <- 18 + age_diff
-    younger_age <- 18
+    older_age <- 14 + age_diff
+    younger_age <- 14
   } else {
     # Calculate the ages based on the given logic
     older_age <- 14 + 2 * age_diff

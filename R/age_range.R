@@ -13,7 +13,7 @@
 #' @examples
 #' age_range(28)
 #'
-#' age_range(16)
+#' age_range(13)
 #'
 #' age_range(85)
 #'
@@ -23,9 +23,9 @@ age_range <- function(age) {
       stop("Error: the age must be a numeric value")
     }
 
-    below_18 <- age < 18
-    if (any(below_18)) {
-      stop("Error: all ages must be 18 or greater")
+    below_14 <- age < 14
+    if (any(below_14)) {
+      stop("Error: all ages must be 14 or greater")
     }
 
     lower_limit <- lower_limit(age)
