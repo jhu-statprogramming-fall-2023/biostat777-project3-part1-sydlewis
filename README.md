@@ -1,4 +1,5 @@
-# halfplus7
+
+# halfplus7 <img src="man/figures/logo.png" align="right" height="108" alt="" />
 
 Is age just a number? What age is too old or too young to date?
 
