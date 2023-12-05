@@ -1,5 +1,5 @@
 
-# halfplus7 <img src="man/figures/logo.jpeg" align="right" height="108" alt="" />
+# halfplus7 <img src="man/figures/package_logo.jpeg" align="right" height="108" alt="" />
 
 Is age just a number? What age is too old or too young to date?
 
