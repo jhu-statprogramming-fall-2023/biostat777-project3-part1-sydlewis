@@ -55,8 +55,6 @@ age_gaps_raw <- read_csv("../data/age_gaps.csv")
 
 ```{r}
 age_gaps_v1 <- age_gaps_raw %>%
-  filter(actor_1_age >= 18,
-         actor_2_age >= 18) %>%
   mutate(orientation = ifelse(character_1_gender == "man" & character_2_gender == "man" |
                                character_1_gender == "woman" & character_2_gender == "woman",
                              "LGBTQ",
@@ -114,11 +112,10 @@ ggplot(age_gaps_straight, aes(x = release_year, y = age_difference, color = olde
 ```{r}
 
 age_gaps_straight %>%
-  mutate(verdict_long = check_couple(man_age, woman_age),
-         verdict = case_when(
-    str_detect(verdict_long, "NOT") ~ "No",
-    !str_detect(verdict_long, "NOT") ~ "Yes")) %>%
-  ggplot(aes(man_age, woman_age, color = verdict)) +
+  mutate(match_rule = case_when(
+    check_couple(man_age, woman_age) == FALSE ~ "No",
+    check_couple(man_age, woman_age) == TRUE ~ "Yes")) %>%
+  ggplot(aes(man_age, woman_age, color = match_rule)) +
   geom_jitter(size = 1, alpha = 0.75) +  # Add points for the scatter plot
   geom_abline(intercept = 0, slope = 1, linetype = "dashed", color = "black") +
   scale_color_manual(values = c("Yes" = "blue", "No" = "red")) +
