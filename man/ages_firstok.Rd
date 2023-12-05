@@ -7,9 +7,9 @@
 ages_firstok(birthdate1, birthdate2)
 }
 \arguments{
-\item{birthdate1}{date, the date when person 1 was born}
+\item{birthdate1}{date, the date when person 1 was born, written as "YYYY-MM-DD"}
 
-\item{birthdate2}{date, the date when person 2 was born}
+\item{birthdate2}{date, the date when person 2 was born, written as "YYYY-MM-DD"}
 }
 \value{
 The ages that are the appropriate age range for the age entered
@@ -18,6 +18,8 @@ The ages that are the appropriate age range for the age entered
 Prints the ages when two people of the entered birth dates will have an appropriate age gap, given the "Half-Your-Age-Plus-7" Rule.
 }
 \examples{
-ages_firstokay(1970-03-19, 2000-07-09)
+ages_firstok("1970-03-19", "2000-07-09")
+
+ages_firstok("1800-01-20", "1900-03-17")
 
 }

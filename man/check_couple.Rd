@@ -20,4 +20,9 @@ Using the "Half-Your-Age-Plus-Seven" Rule, the function returns the "verdict" gi
 \examples{
 check_couple(70, 30)
 
+check_couple(16, 19)
+
+check_couple(50, 80)
+
+
 }

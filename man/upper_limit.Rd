@@ -18,4 +18,8 @@ Prints the upper age limit for a specific age, when following the "Half-Your-Age
 \examples{
 upper_limit(30)
 
+upper_limit(15)
+
+upper_limit(57)
+
 }

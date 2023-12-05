@@ -18,4 +18,8 @@ Prints the lower age limit for a specific age, when following the "Half-Your-Age
 \examples{
 lower_limit(30)
 
+lower_limit(17)
+
+lower_limit(99)
+
 }

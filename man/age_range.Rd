@@ -18,4 +18,8 @@ Prints the age range for a specific age, when following the "Half-Your-Age-Plus-
 \examples{
 age_range(28)
 
+age_range(16)
+
+age_range(85)
+
 }
