@@ -14,4 +14,4 @@ Suggests:
     knitr,
     rmarkdown
 VignetteBuilder: knitr
-URL: https://github.com/sydlewis/halfplus7
+URL: https://github.com/jhu-statprogramming-fall-2023/biostat777-project3-part1-sydlewis
