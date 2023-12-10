@@ -172,7 +172,6 @@ top_age_gaps_long <- top_age_gaps %>%
 ## Top 10 Largest Age Gaps when Man is Older
 
 ```{r}
-
 top_age_gaps_long %>%
   filter(older_actor == "man") %>%
   ggplot(aes(x = age, y = reorder(movie_name, age_difference))) +
