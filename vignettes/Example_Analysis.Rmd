@@ -1,5 +1,5 @@
 ---
-title: "Example_Analysis with halfplus7 Package"
+title: "Example_Analysis"
 output: rmarkdown::html_vignette
 vignette: >
   %\VignetteIndexEntry{Example_Analysis}
