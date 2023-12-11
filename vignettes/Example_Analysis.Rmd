@@ -68,6 +68,7 @@ age_gaps_v1 <- age_gaps_raw %>%
          actor_1_birthdate = ymd(actor_1_birthdate),
          actor_2_birthdate = ymd(actor_2_birthdate))
 
+#calculates the older actor in the couple
 calculate_older_actor <- function(man_birthdate, woman_birthdate) {
   if (man_birthdate < woman_birthdate) {
     return("man")
@@ -105,6 +106,7 @@ assign_gender_details <- function(character_1_gender, character_2_gender, actor_
 }
 
 age_gaps_straight <- age_gaps_v1 %>%
+  filter(orientation == "Straight") %>%
   mutate(
     details = pmap(list(character_1_gender, character_2_gender, actor_1_age, actor_1_birthdate, actor_1_name, actor_2_age, actor_2_birthdate, actor_2_name), assign_gender_details)
   ) %>%
@@ -138,6 +140,29 @@ ggplot(age_gaps_straight, aes(x = release_year, y = age_difference, color = olde
     color = "Gender of Older \nActor in Couple:"
   ) +
   theme_minimal()
+```
+
+```{r}
+age_gaps_straight %>%
+  mutate(match_rule = case_when(
+    check_couple(man_age, woman_age) == FALSE ~ "No",
+    check_couple(man_age, woman_age) == TRUE ~ "Yes")) %>%
+ggplot(aes(x = release_year, y = age_difference, color = match_rule)) +
+  # adds jitter for discrete data
+  geom_jitter(alpha = 0.5) +
+  # designates color of points by gender of older actor in couple
+  scale_color_manual(values = c("Yes" = "blue", "No" = "red")) +
+  # creates labels for plot
+  labs(
+    title = "Movie Couple Age Differences Over Time",
+    x = "Year",
+    y = "Age Difference",
+    color = "Does the Couple follow the \n'Half-Your-Age-Plus-Seven' Rule?"
+  ) +
+  theme_minimal() +
+  facet_wrap(~older_actor) + 
+  # moves legend to top of plot
+  theme(legend.position = "top")
 ```
 
 ## Age Comparison of Men and Women in Movie Couples
@@ -263,7 +288,7 @@ top_age_gaps_long %>%
 
 `lubridate` : `ymd`
 
-`ggplot2` : `geom_jitter`, `geom_abline`, `geom_point`, `geom_segment`, `geom_text`, `geom_label`
+`ggplot2` : `geom_jitter`, `geom_abline`, `geom_point`, `geom_segment`, `geom_text`, `geom_label`, `facet_wrap`
 
 `purrr`: `map`, `map_chr`, `pmap`, `pmap_chr`
 
