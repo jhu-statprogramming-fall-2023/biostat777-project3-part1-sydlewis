@@ -1,8 +1,9 @@
 Package: halfplus7
 Type: Package
-Title: What the Package Does (Title Case)
+Title: Applying the Half Your Age Plus 7 Years Rule
 Version: 0.1.0
 Author: Sydney Lewis
+Authors@R: person("Sydney", "Lewis", email = "slewi100@jh.edu", role = c("aut", "cre"), comment = c(ORCID = "https://orcid.org/0000-0003-4489-3982"))
 Maintainer: Sydney Lewis <slewi100@jh.edu>
 Description: More about what it does (maybe more than one line)
     Use four spaces when indenting paragraphs within the Description.

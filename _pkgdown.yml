@@ -2,8 +2,17 @@ url: ~
 template:
   bootstrap: 5
   bootswatch: journal
+  theme: breeze-light
 
 navbar:
+  bg: light
   structure:
     left:  [intro, reference, articles]
     right: [search, github]
+
+footer:
+  structure:
+    left: developed_by
+    right: [built_with, legal]
+  components:
+    legal: Provided without **any guarantee** for relationship success 😅.

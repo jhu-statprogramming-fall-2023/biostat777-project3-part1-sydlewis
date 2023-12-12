@@ -1,4 +1,4 @@
-# halfplus7 <img src="man/figures/package_logo.jpeg" align="right" height="108"/>
+# halfplus7 <img src="man/figures/package_logo2.jpg" align="right" height="150"/>
 
 Is age just a number? What age is too old or too young to date?
 
@@ -16,7 +16,7 @@ The "Half-Your-Age-Plus-Seven" Rule is sometimes used to decide whether or not t
 
 **Please note:** This package is meant to be silly and *NOT* to provide any absolute judgement about a couple. Relationships are complicated and a super simple mathematical formula about one aspect of the individuals involved shouldn't hold too much weight. Cheers to love and connection at every age! ❤️
 
-Example:
+# Examples:
 
 > lower_limit(40)
 
@@ -31,3 +31,15 @@ Example:
 Age of Older Person Age of Younger Person
 
 213.7372 113.8686
+
+# Link to Deployed `pkgdown` site
+
+https://jhu-statprogramming-fall-2023.github.io/biostat777-project3-part1-sydlewis/
+
+# Customization of `pkgdown` site
+
+1. I changed the bootswatch theme to "journal."
+2. I added a package logo. 
+3. I changed the colors used for syntax highlighting in the code blocks.
+4. I customized the footer to add a legal disclaimer. 
+5. I added a link to my ORCID profile.
