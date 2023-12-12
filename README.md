@@ -2,7 +2,7 @@
 
 Is age just a number? What age is too old or too young to date?
 
-The "Half-Your-Age-Plus-Seven" Rule is sometimes used to decide whether or not the relative ages of individuals in a couple are appropriate. This package provides several functions that apply the Rule to given ages.
+The "Half-Your-Age-Plus-Seven" Rule is sometimes used to decide whether or not the relative ages of individuals in a couple are appropriate. This package provides several functions that apply the Rule to given ages. I (Sydney Lewis) am the original author of this package.
 
 `lower_limit` : provides the lower age limit for a given age
 
