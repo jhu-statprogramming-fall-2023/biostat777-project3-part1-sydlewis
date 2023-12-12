@@ -1,4 +1,4 @@
-# halfplus7 <img src="man/figures/package_logo2.jpg" align="right" height="150"/>
+# halfplus7 <img src="man/figures/package_logo.jpeg" align="right" style="width: 200px; height: 200px;"/>
 
 Is age just a number? What age is too old or too young to date?
 
@@ -41,5 +41,6 @@ https://jhu-statprogramming-fall-2023.github.io/biostat777-project3-part1-sydlew
 1. I changed the bootswatch theme to "journal."
 2. I added a package logo. 
 3. I changed the colors used for syntax highlighting in the code blocks.
-4. I customized the footer to add a legal disclaimer. 
+4. I customized the footer to add a disclaimer. 
 5. I added a link to my ORCID profile.
+6. I customized the colors of the text throughout the site.

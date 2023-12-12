@@ -16,6 +16,12 @@ knitr::opts_chunk$set(
 )
 ```
 
+## Research Question
+
+I am interested in exploring the characteristics of age gaps in hollywood movie couples and how these characteristics differ across gender. 
+
+I downloaded this data from [GitHub](https://github.com/rfordatascience/tidytuesday/tree/master/data/2023/2023-02-14). This [link](https://github.com/rfordatascience/tidytuesday/blob/master/data/2023/2023-02-14/readme.md) includes the data dictionary. 
+
 ## Loading Necessary Packages
 
 ```{r setup, message = FALSE}
@@ -50,7 +56,7 @@ download_and_save("age_gaps.csv", 'https://raw.githubusercontent.com/rfordatasci
 
 ## Loading Dataset
 
-```{r}
+```{r, message = FALSE}
 # Imports raw age_gap dataset
 age_gaps_raw <- read_csv("../data/age_gaps.csv")
 ```
@@ -125,6 +131,8 @@ age_gaps_straight <- age_gaps_v1 %>%
 
 ## Visualizing Age Gaps over Time
 
+In more recent years, there is a larger volume of movie couples. Overall, there are more straight couples where the man is older than where the woman is older. 
+
 ```{r}
 ggplot(age_gaps_straight, aes(x = release_year, y = age_difference, color = older_actor)) +
   # adds jitter for discrete data
@@ -135,12 +143,18 @@ ggplot(age_gaps_straight, aes(x = release_year, y = age_difference, color = olde
   # creates labels for plot
   labs(
     title = "Movie Couple Age Differences Over Time",
+    subtitle = "This visualization includes straight couples from movies over time.",
     x = "Year",
     y = "Age Difference",
-    color = "Gender of Older \nActor in Couple:"
+    color = "Gender of Older \nActor in Couple:",
+    caption = "Created using Tidy Tuesday Data"
   ) +
   theme_minimal()
 ```
+
+Overall, there appears to be more straight couples with an older man that do not meet the "Half-Your-Age-Plus-7" Rule. 
+
+*Please note that this plot includes a demonstration of the `check_couple` function*
 
 ```{r}
 age_gaps_straight %>%
@@ -155,9 +169,11 @@ ggplot(aes(x = release_year, y = age_difference, color = match_rule)) +
   # creates labels for plot
   labs(
     title = "Movie Couple Age Differences Over Time",
+    subtitle = "The visualization is faceted by gender of the older member of the couple.",
     x = "Year",
     y = "Age Difference",
-    color = "Does the Couple follow the \n'Half-Your-Age-Plus-Seven' Rule?"
+    color = "Does the Couple follow the \n'Half-Your-Age-Plus-Seven' Rule?",
+    caption = "Created using Tidy Tuesday Data"
   ) +
   theme_minimal() +
   facet_wrap(~older_actor) + 
@@ -167,7 +183,9 @@ ggplot(aes(x = release_year, y = age_difference, color = match_rule)) +
 
 ## Age Comparison of Men and Women in Movie Couples
 
-**Please note that this plot includes a demonstration of the check_couple function.** 
+Visualized another way, there are more couples where the man is older than the woman. 
+
+*Please note that the plot includes a demonstration of the `check_couple` function* 
 
 ```{r}
 age_gaps_straight %>%
@@ -186,16 +204,19 @@ age_gaps_straight %>%
   # adds labels for plot
   labs(
     title = "Age Comparison of Woman and Man in Straight Movie Couples",
-    subtitle = "Observations that fall on the black dashed line indicate the same age for the man and woman.",
+    subtitle = "Observations that fall on the black dashed line indicate the same age for the \nman and woman.",
     x = "Man's Age",
     y = "Woman's Age",
-    color = "Does the Couple follow the \n'Half-Your-Age-Plus-Seven' Rule?"
+    color = "Does the Couple follow the \n'Half-Your-Age-Plus-Seven' Rule?",
+    caption = "Created using Tidy Tuesday Data"
   ) + 
   # moves legend to top of plot
   theme(legend.position = "top")
 ```
 
 ## Creates Datasets for the Straight Couples with the largest age gaps
+
+*Please note that the following plots include demonstrations of the `upper_limit` and `lower_limit` functions*
 
 ```{r}
 # creates data set with couples with largest age gaps, 10 with older man and 10 with older woman
@@ -216,6 +237,8 @@ top_age_gaps_long <- top_age_gaps %>%
 ```
 
 ## Top 10 Largest Age Gaps when Man is Older
+
+In the ten largest age gaps when the man is older, none of women are within the lower age limit produced by the "Half-Your-Age-Plus-7" Rule.
 
 ```{r}
 top_age_gaps_long %>%
@@ -249,6 +272,8 @@ top_age_gaps_long %>%
 
 ## Top 10 Largest Age Gaps when Woman is Older
 
+In the ten largest age gaps when the woman is older, two of men are within the upper age limit produced by the "Half-Your-Age-Plus-7" Rule.
+
 ```{r}
 top_age_gaps_long %>%
   filter(older_actor == "woman") %>%
@@ -279,6 +304,10 @@ top_age_gaps_long %>%
   guides(color = guide_legend(title = "Gender:")) +
   xlim(c(12, 85))
 ```
+
+## Summary
+
+In the majority of straight movie couples, the man is older than the woman. In general, there are also more examples of more extreme age gaps with an older man. 
 
 ### Functions Used
 

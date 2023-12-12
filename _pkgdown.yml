@@ -3,6 +3,10 @@ template:
   bootstrap: 5
   bootswatch: journal
   theme: breeze-light
+  bslib:
+    bg: "#FFFFFF"
+    fg: "#BB290A"
+    primary: "#FC81C6"
 
 navbar:
   bg: light
@@ -15,4 +19,4 @@ footer:
     left: developed_by
     right: [built_with, legal]
   components:
-    legal: Provided without **any guarantee** for relationship success 😅.
+    legal: Provided without *any guarantee* for relationship success 😅.
