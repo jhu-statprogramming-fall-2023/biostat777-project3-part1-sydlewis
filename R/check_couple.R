@@ -1,4 +1,4 @@
-#' Check Couple
+#' Checks Whether Couple Meets Rule
 #'
 #' Using the "Half-Your-Age-Plus-Seven" Rule, the function returns the "verdict" given two ages for the members of a couple
 #'

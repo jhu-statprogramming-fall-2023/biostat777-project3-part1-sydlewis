@@ -1,4 +1,4 @@
-#' Upper Age Limit
+#' Returns Upper Age Limit of Age Range
 #'
 #' Prints the upper age limit for a specific age, when following the "Half-Your-Age-Plus-Seven" Rule
 #'

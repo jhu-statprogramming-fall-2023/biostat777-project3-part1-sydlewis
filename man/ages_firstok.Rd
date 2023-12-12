@@ -2,7 +2,7 @@
 % Please edit documentation in R/ages_firstok.R
 \name{ages_firstok}
 \alias{ages_firstok}
-\title{First Okay}
+\title{Returns Ages When Couple First Meets Rule}
 \usage{
 ages_firstok(birthdate1, birthdate2)
 }

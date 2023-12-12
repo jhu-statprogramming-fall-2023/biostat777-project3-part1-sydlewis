@@ -1,4 +1,4 @@
-#' First Okay
+#' Returns Ages When Couple First Meets Rule
 #'
 #' Prints the ages when two people of the entered birth dates will have an appropriate age gap, given the "Half-Your-Age-Plus-7" Rule.
 #'

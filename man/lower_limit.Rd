@@ -2,7 +2,7 @@
 % Please edit documentation in R/lower_limit.R
 \name{lower_limit}
 \alias{lower_limit}
-\title{Lower Age Limit}
+\title{Returns Lower Age Limit of Age Range}
 \usage{
 lower_limit(age)
 }

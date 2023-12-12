@@ -1,4 +1,4 @@
-#' Lower Age Limit
+#' Returns Lower Age Limit of Age Range
 #'
 #' Prints the lower age limit for a specific age, when following the "Half-Your-Age-Plus-Seven" Rule
 #'

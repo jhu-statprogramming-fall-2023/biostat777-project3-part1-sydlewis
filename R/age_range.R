@@ -1,4 +1,4 @@
-#' Age Range
+#' Returns Appropriate Age Range
 #'
 #' Prints the age range for a specific age, when following the "Half-Your-Age-Plus-Seven" Rule
 #'

@@ -2,7 +2,7 @@
 % Please edit documentation in R/upper_limit.R
 \name{upper_limit}
 \alias{upper_limit}
-\title{Upper Age Limit}
+\title{Returns Upper Age Limit of Age Range}
 \usage{
 upper_limit(age)
 }

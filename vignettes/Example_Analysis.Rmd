@@ -18,9 +18,9 @@ knitr::opts_chunk$set(
 
 ## Research Question
 
-I am interested in exploring the characteristics of age gaps in hollywood movie couples and how these characteristics differ across gender. 
+I am interested in exploring the characteristics of age gaps in Hollywood movie couples and how these characteristics differ across gender. Through exploring these questions, I demonstrate a few of the functions in the `halfplus7` package.
 
-I downloaded this data from [GitHub](https://github.com/rfordatascience/tidytuesday/tree/master/data/2023/2023-02-14). This [link](https://github.com/rfordatascience/tidytuesday/blob/master/data/2023/2023-02-14/readme.md) includes the data dictionary. 
+I downloaded these data from [GitHub](https://github.com/rfordatascience/tidytuesday/tree/master/data/2023/2023-02-14). This [link](https://github.com/rfordatascience/tidytuesday/blob/master/data/2023/2023-02-14/readme.md) includes the data dictionary. 
 
 ## Loading Necessary Packages
 

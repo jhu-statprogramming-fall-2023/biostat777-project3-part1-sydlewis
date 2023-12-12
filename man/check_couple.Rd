@@ -2,7 +2,7 @@
 % Please edit documentation in R/check_couple.R
 \name{check_couple}
 \alias{check_couple}
-\title{Check Couple}
+\title{Checks Whether Couple Meets Rule}
 \usage{
 check_couple(age1, age2)
 }

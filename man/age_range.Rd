@@ -2,7 +2,7 @@
 % Please edit documentation in R/age_range.R
 \name{age_range}
 \alias{age_range}
-\title{Age Range}
+\title{Returns Appropriate Age Range}
 \usage{
 age_range(age)
 }
