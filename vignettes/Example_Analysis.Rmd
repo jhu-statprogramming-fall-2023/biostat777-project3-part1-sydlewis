@@ -18,11 +18,13 @@ knitr::opts_chunk$set(
 
 ## Research Question
 
-I am interested in exploring the characteristics of age gaps in Hollywood movie couples and how these characteristics differ across gender. Through exploring these questions, I demonstrate a few of the functions in the `halfplus7` package.
+I am interested in exploring the characteristics of age gaps in Hollywood movie couples and how these characteristics differ across gender. Through exploring these questions, I will demonstrate a few of the functions in the `halfplus7` package.
 
-I downloaded these data from [GitHub](https://github.com/rfordatascience/tidytuesday/tree/master/data/2023/2023-02-14). This [link](https://github.com/rfordatascience/tidytuesday/blob/master/data/2023/2023-02-14/readme.md) includes the data dictionary. 
+I downloaded these data from the [TidyTuesday GitHub](https://github.com/rfordatascience/tidytuesday/tree/master/data/2023/2023-02-14). This [link](https://github.com/rfordatascience/tidytuesday/blob/master/data/2023/2023-02-14/readme.md) includes the data dictionary. 
 
-## Loading Necessary Packages
+## Preparing for Analysis
+
+### Loading Necessary Packages
 
 ```{r setup, message = FALSE}
 # Loads tidyverse
@@ -32,7 +34,7 @@ library(tidyverse)
 library(halfplus7)
 ```
 
-## Saving the Data
+### Saving the Data
 
 ```{r}
 download_and_save <- function(file_name, url) {
@@ -54,14 +56,14 @@ download_and_save <- function(file_name, url) {
 download_and_save("age_gaps.csv", 'https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2023/2023-02-14/age_gaps.csv')
 ```
 
-## Loading Dataset
+### Loading Dataset
 
 ```{r, message = FALSE}
 # Imports raw age_gap dataset
 age_gaps_raw <- read_csv("../data/age_gaps.csv")
 ```
 
-## Cleaning Dataset 
+### Cleaning Dataset 
 
 ```{r}
 age_gaps_v1 <- age_gaps_raw %>%
@@ -129,7 +131,7 @@ age_gaps_straight <- age_gaps_v1 %>%
   select(-details)
 ```
 
-## Visualizing Age Gaps over Time
+## Age Gaps over Time
 
 In more recent years, there is a larger volume of movie couples. Overall, there are more straight couples where the man is older than where the woman is older. 
 
@@ -214,7 +216,7 @@ age_gaps_straight %>%
   theme(legend.position = "top")
 ```
 
-## Creates Datasets for the Straight Couples with the largest age gaps
+## Couples with the Largest Age Gaps
 
 *Please note that the following plots include demonstrations of the `upper_limit` and `lower_limit` functions*
 
@@ -236,7 +238,7 @@ top_age_gaps_long <- top_age_gaps %>%
          age_upperlim = upper_limit(age))
 ```
 
-## Top 10 Largest Age Gaps when Man is Older
+### Top 10 Largest Age Gaps when Man is Older
 
 In the ten largest age gaps when the man is older, none of women are within the lower age limit produced by the "Half-Your-Age-Plus-7" Rule.
 
@@ -270,7 +272,7 @@ top_age_gaps_long %>%
   xlim(c(12, 80))
 ```
 
-## Top 10 Largest Age Gaps when Woman is Older
+### Top 10 Largest Age Gaps when Woman is Older
 
 In the ten largest age gaps when the woman is older, two of men are within the upper age limit produced by the "Half-Your-Age-Plus-7" Rule.
 
@@ -295,7 +297,7 @@ top_age_gaps_long %>%
       subtitle = "Green shaded segments illustrate the upper age range for younger actors, \ngiven the 'Half-Your-Age-Plus-7' Rule. If the younger actor's age is not \nincluded in this range that indicates that the couple would not meet the \nRule.", 
        x = "Actor Age (years)",
        x = "Actor Age (years)", 
-       y = "Movie Title",
+       y = "Movie Title and Age Difference (years)",
        caption = "Created using TidyTuesday data") +
   scale_color_manual(values = c("man_age" = "darkgreen", "woman_age" = "purple"),
     labels = c("Man", "Woman")) +

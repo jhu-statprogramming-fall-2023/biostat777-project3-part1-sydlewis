@@ -86,15 +86,18 @@
 </h2>
 <p>I am interested in exploring the characteristics of age gaps in
 Hollywood movie couples and how these characteristics differ across
-gender. Through exploring these questions, I demonstrate a few of the
-functions in the <code>halfplus7</code> package.</p>
-<p>I downloaded these data from <a href="https://github.com/rfordatascience/tidytuesday/tree/master/data/2023/2023-02-14" class="external-link">GitHub</a>.
-This <a href="https://github.com/rfordatascience/tidytuesday/blob/master/data/2023/2023-02-14/readme.md" class="external-link">link</a>
+gender. Through exploring these questions, I will demonstrate a few of
+the functions in the <code>halfplus7</code> package.</p>
+<p>I downloaded these data from the <a href="https://github.com/rfordatascience/tidytuesday/tree/master/data/2023/2023-02-14" class="external-link">TidyTuesday
+GitHub</a>. This <a href="https://github.com/rfordatascience/tidytuesday/blob/master/data/2023/2023-02-14/readme.md" class="external-link">link</a>
 includes the data dictionary.</p>
 </div>
 <div class="section level2">
-<h2 id="loading-necessary-packages">Loading Necessary Packages<a class="anchor" aria-label="anchor" href="#loading-necessary-packages"></a>
+<h2 id="preparing-for-analysis">Preparing for Analysis<a class="anchor" aria-label="anchor" href="#preparing-for-analysis"></a>
 </h2>
+<div class="section level3">
+<h3 id="loading-necessary-packages">Loading Necessary Packages<a class="anchor" aria-label="anchor" href="#loading-necessary-packages"></a>
+</h3>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Loads tidyverse</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org" class="external-link">tidyverse</a></span><span class="op">)</span></span>
@@ -102,9 +105,9 @@ includes the data dictionary.</p>
 <span><span class="co"># Loads halfplus7 -- the package of interest</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/jhu-statprogramming-fall-2023/biostat777-project3-part1-sydlewis" class="external-link">halfplus7</a></span><span class="op">)</span></span></code></pre></div>
 </div>
-<div class="section level2">
-<h2 id="saving-the-data">Saving the Data<a class="anchor" aria-label="anchor" href="#saving-the-data"></a>
-</h2>
+<div class="section level3">
+<h3 id="saving-the-data">Saving the Data<a class="anchor" aria-label="anchor" href="#saving-the-data"></a>
+</h3>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">download_and_save</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">file_name</span>, <span class="va">url</span><span class="op">)</span> <span class="op">{</span></span>
 <span>  <span class="va">data_folder</span> <span class="op">&lt;-</span> <span class="st">"../data"</span></span>
@@ -124,16 +127,16 @@ includes the data dictionary.</p>
 <span><span class="co"># Uses download_and_save function with age_gaps.csv from GitHub</span></span>
 <span><span class="fu">download_and_save</span><span class="op">(</span><span class="st">"age_gaps.csv"</span>, <span class="st">'https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2023/2023-02-14/age_gaps.csv'</span><span class="op">)</span></span></code></pre></div>
 </div>
-<div class="section level2">
-<h2 id="loading-dataset">Loading Dataset<a class="anchor" aria-label="anchor" href="#loading-dataset"></a>
-</h2>
+<div class="section level3">
+<h3 id="loading-dataset">Loading Dataset<a class="anchor" aria-label="anchor" href="#loading-dataset"></a>
+</h3>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Imports raw age_gap dataset</span></span>
 <span><span class="va">age_gaps_raw</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://readr.tidyverse.org/reference/read_delim.html" class="external-link">read_csv</a></span><span class="op">(</span><span class="st">"../data/age_gaps.csv"</span><span class="op">)</span></span></code></pre></div>
 </div>
-<div class="section level2">
-<h2 id="cleaning-dataset">Cleaning Dataset<a class="anchor" aria-label="anchor" href="#cleaning-dataset"></a>
-</h2>
+<div class="section level3">
+<h3 id="cleaning-dataset">Cleaning Dataset<a class="anchor" aria-label="anchor" href="#cleaning-dataset"></a>
+</h3>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">age_gaps_v1</span> <span class="op">&lt;-</span> <span class="va">age_gaps_raw</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
 <span>  <span class="co"># creates new variable to describe sexual orientation of couple</span></span>
@@ -199,8 +202,9 @@ includes the data dictionary.</p>
 <span>  <span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html" class="external-link">select</a></span><span class="op">(</span><span class="op">-</span><span class="va">details</span><span class="op">)</span></span></code></pre></div>
 </div>
+</div>
 <div class="section level2">
-<h2 id="visualizing-age-gaps-over-time">Visualizing Age Gaps over Time<a class="anchor" aria-label="anchor" href="#visualizing-age-gaps-over-time"></a>
+<h2 id="age-gaps-over-time">Age Gaps over Time<a class="anchor" aria-label="anchor" href="#age-gaps-over-time"></a>
 </h2>
 <p>In more recent years, there is a larger volume of movie couples.
 Overall, there are more straight couples where the man is older than
@@ -287,8 +291,7 @@ than the woman.</p>
 <p><img src="Example_Analysis_files/figure-html/unnamed-chunk-7-1.png" width="768"></p>
 </div>
 <div class="section level2">
-<h2 id="creates-datasets-for-the-straight-couples-with-the-largest-age-gaps">Creates Datasets for the Straight Couples with the largest age
-gaps<a class="anchor" aria-label="anchor" href="#creates-datasets-for-the-straight-couples-with-the-largest-age-gaps"></a>
+<h2 id="couples-with-the-largest-age-gaps">Couples with the Largest Age Gaps<a class="anchor" aria-label="anchor" href="#couples-with-the-largest-age-gaps"></a>
 </h2>
 <p><em>Please note that the following plots include demonstrations of
 the <code>upper_limit</code> and <code>lower_limit</code>
@@ -309,10 +312,9 @@ functions</em></p>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html" class="external-link">mutate</a></span><span class="op">(</span>actor_name <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/ifelse.html" class="external-link">ifelse</a></span><span class="op">(</span><span class="va">actor</span> <span class="op">==</span> <span class="st">"man_age"</span>, <span class="va">man_name</span>, <span class="va">woman_name</span><span class="op">)</span>,</span>
 <span>         age_lowerlim <span class="op">=</span> <span class="fu"><a href="../reference/lower_limit.html">lower_limit</a></span><span class="op">(</span><span class="va">age</span><span class="op">)</span>,</span>
 <span>         age_upperlim <span class="op">=</span> <span class="fu"><a href="../reference/upper_limit.html">upper_limit</a></span><span class="op">(</span><span class="va">age</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
-</div>
-<div class="section level2">
-<h2 id="top-10-largest-age-gaps-when-man-is-older">Top 10 Largest Age Gaps when Man is Older<a class="anchor" aria-label="anchor" href="#top-10-largest-age-gaps-when-man-is-older"></a>
-</h2>
+<div class="section level3">
+<h3 id="top-10-largest-age-gaps-when-man-is-older">Top 10 Largest Age Gaps when Man is Older<a class="anchor" aria-label="anchor" href="#top-10-largest-age-gaps-when-man-is-older"></a>
+</h3>
 <p>In the ten largest age gaps when the man is older, none of women are
 within the lower age limit produced by the “Half-Your-Age-Plus-7”
 Rule.</p>
@@ -351,9 +353,9 @@ Rule.</p>
 <span><span class="co">#&gt; <span style="color: #555555;">generated.</span></span></span></code></pre></div>
 <p><img src="Example_Analysis_files/figure-html/unnamed-chunk-9-1.png" width="768"></p>
 </div>
-<div class="section level2">
-<h2 id="top-10-largest-age-gaps-when-woman-is-older">Top 10 Largest Age Gaps when Woman is Older<a class="anchor" aria-label="anchor" href="#top-10-largest-age-gaps-when-woman-is-older"></a>
-</h2>
+<div class="section level3">
+<h3 id="top-10-largest-age-gaps-when-woman-is-older">Top 10 Largest Age Gaps when Woman is Older<a class="anchor" aria-label="anchor" href="#top-10-largest-age-gaps-when-woman-is-older"></a>
+</h3>
 <p>In the ten largest age gaps when the woman is older, two of men are
 within the upper age limit produced by the “Half-Your-Age-Plus-7”
 Rule.</p>
@@ -378,7 +380,7 @@ Rule.</p>
 <span>      subtitle <span class="op">=</span> <span class="st">"Green shaded segments illustrate the upper age range for younger actors, \ngiven the 'Half-Your-Age-Plus-7' Rule. If the younger actor's age is not \nincluded in this range that indicates that the couple would not meet the \nRule."</span>, </span>
 <span>       x <span class="op">=</span> <span class="st">"Actor Age (years)"</span>,</span>
 <span>       x <span class="op">=</span> <span class="st">"Actor Age (years)"</span>, </span>
-<span>       y <span class="op">=</span> <span class="st">"Movie Title"</span>,</span>
+<span>       y <span class="op">=</span> <span class="st">"Movie Title and Age Difference (years)"</span>,</span>
 <span>       caption <span class="op">=</span> <span class="st">"Created using TidyTuesday data"</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_manual.html" class="external-link">scale_color_manual</a></span><span class="op">(</span>values <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"man_age"</span> <span class="op">=</span> <span class="st">"darkgreen"</span>, <span class="st">"woman_age"</span> <span class="op">=</span> <span class="st">"purple"</span><span class="op">)</span>,</span>
 <span>    labels <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"Man"</span>, <span class="st">"Woman"</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
@@ -387,6 +389,7 @@ Rule.</p>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/guides.html" class="external-link">guides</a></span><span class="op">(</span>color <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/guide_legend.html" class="external-link">guide_legend</a></span><span class="op">(</span>title <span class="op">=</span> <span class="st">"Gender:"</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/lims.html" class="external-link">xlim</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">12</span>, <span class="fl">85</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <p><img src="Example_Analysis_files/figure-html/unnamed-chunk-10-1.png" width="768"></p>
+</div>
 </div>
 <div class="section level2">
 <h2 id="summary">Summary<a class="anchor" aria-label="anchor" href="#summary"></a>
