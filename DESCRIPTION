@@ -3,7 +3,7 @@ Type: Package
 Title: Half Your Age Plus 7 Years Rule
 Version: 0.1.0
 Author: Sydney Lewis
-Authors@R: person("Sydney", "Lewis", email = "slewi100@jh.edu", role = c("aut", "cre"), comment = c(ORCID = 0000-0003-4489-3982))
+Authors@R: person("Sydney", "Lewis", email = "slewi100@jh.edu", role = c("aut", "cre"), comment = c(ORCID = "0000-0003-4489-3982"))
 Maintainer: Sydney Lewis <slewi100@jh.edu>
 Description: This package applies the "Half-Your-Age-Plus-7" Rule in determining the appropriateness of a couple's age gap.
 License: MIT License
