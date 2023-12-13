@@ -319,7 +319,7 @@ In the majority of straight movie couples, the man is older than the woman. In g
 
 `lubridate` : `ymd`
 
-`ggplot2` : `geom_jitter`, `geom_abline`, `geom_point`, `geom_segment`, `geom_text`, `geom_label`, `facet_wrap`
+`ggplot2` : `geom_jitter`, `geom_abline`, `geom_segment`, `geom_text`, `geom_label`, `facet_wrap`
 
 `purrr`: `map`, `map_chr`, `pmap`, `pmap_chr`
 
