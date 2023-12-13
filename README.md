@@ -2,7 +2,7 @@
 
 Is age just a number? What age is too old or too young to date?
 
-The "Half-Your-Age-Plus-Seven" Rule is sometimes used to decide whether or not the relative ages of individuals in a couple are appropriate. This package provides several functions that apply the Rule to given ages. I (Sydney Lewis) am the original author of this package.
+The "Half-Your-Age-Plus-Seven" Rule is sometimes used to decide whether or not the relative ages of individuals in a couple are appropriate. By this Rule, a person would not date someone who is younger than half their own age plus seven. This package provides several functions that apply the Rule to given ages. I (Sydney Lewis) am the original author of this package.
 
 **Please note:** This package is meant to be silly and *NOT* to provide any absolute judgement about a couple. Relationships are complicated and a super simple mathematical formula about one aspect of the individuals involved shouldn't hold too much weight. Cheers to love and connection at every age! ❤️
 
